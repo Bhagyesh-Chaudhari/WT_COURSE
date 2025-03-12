@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: rgb(7, 141, 182);
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        table {
+            margin: 0 auto;
+        }
+        button {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+            background-color: black;
+            color: yellow;
+        }
+        #result {
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Calculator</div>
+    <table border="0">
+        <tr>
+            <td colspan="4"><input type="text" id="result" disabled></td>
+            <td><button onclick="clr()">C</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="display('1')">1</button></td>
+            <td><button onclick="display('2')">2</button></td>
+            <td><button onclick="display('3')">3</button></td>
+            <td><button onclick="display('/')">/</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="display('4')">4</button></td>
+            <td><button onclick="display('5')">5</button></td>
+            <td><button onclick="display('6')">6</button></td>
+            <td><button onclick="display('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="display('7')">7</button></td>
+            <td><button onclick="display('8')">8</button></td>
+            <td><button onclick="display('9')">9</button></td>
+            <td><button onclick="display('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="display('.')">.</button></td>
+            <td><button onclick="display('0')">0</button></td>
+            <td><button onclick="equate()">=</button></td>
+            <td><button onclick="display('*')">*</button></td>
+        </tr>
+    </table>
+
+    <script type="text/javascript">   
+        function clr() {
+            document.getElementById('result').value = '';
+        }
+        function display(value) {
+            document.getElementById('result').value += value;
+        }
+        function equate() {
+            let result = document.getElementById('result').value;
+            let y = eval(result);
+            document.getElementById('result').value = y;
+        }
+    </script>
+</body>
+</html>
